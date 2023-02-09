@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class RemoveAllCharacter {
     /**
@@ -12,6 +15,28 @@ public class RemoveAllCharacter {
      * @return str, without any characters of type ch.
      */
     public String removeAll(String str, String ch){
-        return null;
+        String[] characters = str.split("");
+        ArrayList<String> characterList = new ArrayList<>();
+
+        // copy elements over into list
+        for (int i = 0; i < characters.length; i++) {
+            characterList.add(characters[i]);
+        }
+
+        for (int i = 0; i < characterList.size(); i++) {
+            if (characterList.get(i).equals(ch)) {
+                characterList.remove(i);
+                i = 0;
+            }
+        }
+
+
+        String result = "";
+
+        for (int i = 0; i < characterList.size(); i++) {
+            result += characterList.get(i);
+        }
+
+        return result;
     }
 }
